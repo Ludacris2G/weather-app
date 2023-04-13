@@ -1,0 +1,151 @@
+* {
+    box-sizing: border-box;
+}
+
+$card-background: #121010cc;
+$search-black: #000;
+$white: rgba(255, 255, 255, .6);
+
+$color: rgba(255, 255, 255, .8);
+$background-color: rgba(255, 255, 255, .2);
+$hover-color: rgba(0, 0, 0, 1);
+$hover-background-color: rgba(255, 255, 255, .7);
+
+html {
+    background-image: url('./default-background.jpg');
+    background-size: cover;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    // background-color: rgb(0, 0, 0);
+    font-family: 'Montserrat', sans-serif;
+    background-size: cover;
+    transition: all .4s ease-in-out;
+}
+
+a {
+    font-size: .7rem;
+    position: absolute;
+    color: rgba(241, 241, 241, 0.9);
+    text-decoration: none;
+    transition: all .2s ease-in-out;
+    &:hover {
+        color: #fff;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .card {
+        position: relative;
+        color: #fff;
+        background-color: rgba(13, 10, 10, 0.8);
+        min-width: 350px;
+        border-radius: 2rem;
+        padding: 1rem;
+        .input {
+            display: flex;
+            height: 2rem;
+            input {
+                background-color: $background-color;
+                font-size: 1rem;
+                width: 90%;
+                border-radius: 2rem;
+                border: none;
+                text-align: center;
+                transition: all .2s ease-in-out;
+                &:hover {
+                    &::placeholder {
+                        color: $hover-color;
+                    }
+                    background-color: $hover-background-color;
+                }
+                &:focus {
+                    color: $search-black;
+                    background-color: $hover-background-color;
+                    outline: none;
+                    &::placeholder {
+                        color: transparent;
+                    }
+                }
+                &::placeholder {
+                    color: $color;
+                }
+            }
+            button {
+                margin-left: .3rem;
+                border-radius: 50%;
+                border: none;
+                width: 10%;
+                height: 2rem;
+                transition: all .2s ease-in-out;
+                color: $color;
+                background-color: $background-color;
+                &:hover {
+                    background-color: $hover-background-color;
+                    color: $hover-color;
+                    cursor: pointer;
+                }
+            }
+        }
+        .details {
+            .description, .location {
+                text-transform: capitalize;
+            }
+            .icon {
+                position: absolute;
+                right: 18%;
+                top: 28%;
+                transform: scale(1.6);
+            }
+            .feels-like {
+                font-size: .7rem;
+                margin: 0;
+                padding: 0;
+                color: rgb(189, 189, 189);
+            }
+            .temperature {
+                margin-bottom: 0;
+            }
+            .location {
+                margin-top: .9rem;
+            }
+            .humidity, .wind, .time {
+                color: #cbcbcb;
+            }
+        }
+    }
+}
+
+.loading {
+    .details {
+        display: none;
+    }
+    .card::after {
+        content: 'Loading...';
+        display: block;
+        margin-top: 20px;
+        margin-left: 1rem;
+    }
+}
+
+.not-found {
+    .details {
+        display: none;
+    }
+    .card::after {
+        content: 'City not found';
+        display: block;
+        margin-top: 15px;
+        margin-left: 1rem;
+        color: rgb(232, 75, 75);
+    }
+}
+
+@import './media';

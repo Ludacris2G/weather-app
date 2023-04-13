@@ -1,0 +1,23 @@
+@media screen and (max-width: 350px) {
+    .card {
+        transform: scale(.8) !important;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .card {
+        transform: scale(1);
+    }
+    a {
+        font-size: .5rem;
+    }
+}
+
+@media screen and (min-width: 2000px) {
+    .card{
+        transform: scale(1.3);
+    }
+    a {
+        font-size: 1.3rem;
+    }
+}
